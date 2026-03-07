@@ -1,0 +1,138 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'motion/react';
+import { Menu, X, Phone } from 'lucide-react';
+
+export function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Vrata', href: '/vrata' },
+    { name: 'Servis oken', href: '/servis-oken' },
+    { name: 'Stínící technika', href: '/stinici' },
+    { name: 'O nás', href: '/o-nas' },
+    { name: 'Kontakt', href: '/kontakt' },
+  ];
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 [perspective:1000px] ${
+        isScrolled ? 'bg-background/80 backdrop-blur-xl border-b border-white/10 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]' : 'bg-transparent py-6'
+      }`}
+    >
+      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between [transform-style:preserve-3d]">
+        <Link href="/" className="flex items-center gap-2 group">
+          <motion.div 
+            whileHover={{ scale: 1.05, rotateY: 10 }}
+            className="relative w-32 h-10 transition-transform duration-300"
+          >
+            <Image
+              src="https://qapi.cz/wp-content/uploads/2025/10/Logo-Bile.png"
+              alt="QAPI Logo"
+              fill
+              className="object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="relative text-sm font-bold text-white/80 hover:text-primary transition-colors uppercase tracking-widest group overflow-hidden"
+            >
+              <motion.span whileHover={{ y: -2 }} className="inline-block transition-transform duration-300">
+                {link.name}
+              </motion.span>
+              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left shadow-[0_0_10px_rgba(207,175,108,0.8)]" />
+            </Link>
+          ))}
+        </nav>
+
+        <div className="hidden md:flex items-center gap-6">
+          <a href="tel:+420702835964" className="flex items-center gap-2 text-white/80 hover:text-primary transition-colors group">
+            <motion.div whileHover={{ rotate: 15, scale: 1.1 }} className="transition-transform duration-300">
+              <Phone className="w-4 h-4 drop-shadow-[0_0_5px_rgba(207,175,108,0.5)]" />
+            </motion.div>
+            <span className="text-sm font-bold tracking-wider">+420 702 835 964</span>
+          </a>
+          <Link
+            href="/kontakt"
+            className="relative px-6 py-2.5 bg-primary text-background font-bold text-sm uppercase tracking-wider rounded-xl hover:bg-white transition-all duration-300 shadow-[0_5px_15px_rgba(207,175,108,0.3)] hover:shadow-[0_10px_25px_rgba(207,175,108,0.5)] hover:-translate-y-1 overflow-hidden group"
+          >
+            <span className="relative z-10">Rezervovat</span>
+            <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+          </Link>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden text-white p-2 hover:text-primary transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Nav */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20, rotateX: -15 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            exit={{ opacity: 0, y: -20, rotateX: -15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.8)] md:hidden origin-top [transform-style:preserve-3d]"
+          >
+            <div className="flex flex-col p-6 gap-4">
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-lg font-bold text-white/80 hover:text-primary transition-colors uppercase tracking-wider py-3 border-b border-white/5"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.1 }}
+              >
+                <Link
+                  href="/kontakt"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block mt-6 px-6 py-4 bg-primary text-background font-bold text-center uppercase tracking-wider rounded-xl shadow-[0_10px_20px_rgba(207,175,108,0.3)]"
+                >
+                  Rezervovat termín
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+}
