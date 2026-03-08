@@ -29,14 +29,14 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 [perspective:1000px] ${
-        isScrolled ? 'bg-background/80 backdrop-blur-xl border-b border-white/10 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]' : 'bg-transparent py-6'
+        isScrolled || isMobileMenuOpen ? 'bg-background/95 backdrop-blur-xl border-b border-white/10 py-3 md:py-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]' : 'bg-gradient-to-b from-background/80 via-background/40 to-transparent py-4 md:py-6'
       }`}
     >
-      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between [transform-style:preserve-3d]">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between [transform-style:preserve-3d]">
         <Link href="/" className="flex items-center gap-2 group">
           <motion.div 
             whileHover={{ scale: 1.05, rotateY: 10 }}
-            className="relative w-32 h-10 transition-transform duration-300"
+            className="relative w-[140px] h-[40px] sm:w-[160px] sm:h-[48px] md:w-[224px] md:h-[64px] transition-transform duration-300"
           >
             <Image
               src="https://qapi.cz/wp-content/uploads/2025/10/Logo-Bile.png"
@@ -97,7 +97,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0, rotateX: 0 }}
             exit={{ opacity: 0, y: -20, rotateX: -15 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.8)] md:hidden origin-top [transform-style:preserve-3d]"
+            className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.8)] md:hidden origin-top [transform-style:preserve-3d] max-h-[calc(100dvh-80px)] overflow-y-auto"
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link, index) => (

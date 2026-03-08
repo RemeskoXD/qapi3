@@ -40,14 +40,14 @@ export function Services() {
     <section id="sluzby" className="py-32 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(207,175,108,0.05),transparent_50%)]" />
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-12 md:mb-20">
           <div className="max-w-2xl">
             <motion.h2
               initial={{ opacity: 0, y: 30, rotateX: 20 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tighter"
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tighter"
             >
               Naše <span className="text-primary italic font-light">portfolio</span>
             </motion.h2>
@@ -56,7 +56,7 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 1 }}
-              className="mt-8 text-lg text-white/60 font-light leading-relaxed"
+              className="mt-4 md:mt-8 text-base sm:text-lg text-white/60 font-light leading-relaxed"
             >
               Od návrhu až po realizaci. Nabízíme komplexní řešení pro váš domov či firmu, 
               kde se snoubí funkčnost s estetikou.
@@ -80,7 +80,7 @@ export function Services() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[400px] md:auto-rows-[500px] [perspective:2000px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 auto-rows-[350px] sm:auto-rows-[400px] md:auto-rows-[500px] [perspective:2000px]">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
@@ -105,20 +105,20 @@ export function Services() {
               
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
               
-              <div className="absolute inset-0 z-10 p-10 flex flex-col justify-end" style={{ transform: "translateZ(50px)" }}>
-                <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 ease-[0.16,1,0.3,1]">
-                  <h3 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">
+              <div className="absolute inset-0 z-10 p-6 md:p-10 flex flex-col justify-end" style={{ transform: "translateZ(50px)" }}>
+                <div className="transform translate-y-4 md:translate-y-8 group-hover:translate-y-0 transition-transform duration-700 ease-[0.16,1,0.3,1]">
+                  <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 md:mb-4 tracking-tight drop-shadow-lg">
                     {service.title}
                   </h3>
                   <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-700 ease-[0.16,1,0.3,1]">
-                    <p className="text-white/80 font-light leading-relaxed max-w-md pb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
+                    <p className="text-white/80 text-sm md:text-base font-light leading-relaxed max-w-md pb-2 md:pb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
                       {service.description}
                     </p>
                   </div>
                 </div>
                 
-                <div className="absolute top-10 right-10 w-14 h-14 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center border border-primary/30 transform translate-x-8 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-700 ease-[0.16,1,0.3,1] shadow-[0_0_20px_rgba(207,175,108,0.3)]">
-                  <ArrowUpRight className="w-5 h-5 text-primary" />
+                <div className="absolute top-6 right-6 md:top-10 md:right-10 w-10 h-10 md:w-14 md:h-14 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center border border-primary/30 transform translate-x-8 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-700 ease-[0.16,1,0.3,1] shadow-[0_0_20px_rgba(207,175,108,0.3)]">
+                  <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                 </div>
               </div>
             </motion.div>

@@ -14,8 +14,8 @@ const partners = [
 export function Partners() {
   return (
     <section className="py-20 border-y border-white/5 bg-background overflow-hidden relative [perspective:1000px]">
-      <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-background to-transparent z-10" />
-      <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-background to-transparent z-10" />
+      <div className="absolute inset-y-0 left-0 w-16 md:w-48 bg-gradient-to-r from-background to-transparent z-10" />
+      <div className="absolute inset-y-0 right-0 w-16 md:w-48 bg-gradient-to-l from-background to-transparent z-10" />
       
       <div className="flex w-full [transform-style:preserve-3d]">
         <motion.div

@@ -12,7 +12,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-6 transform transition-transform duration-500 hover:translate-z-10">
             <Link href="/" className="flex items-center gap-2 group inline-block">
-              <div className="relative w-32 h-10 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-y-10">
+              <div className="relative w-48 h-14 md:w-56 md:h-16 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-y-10">
                 <Image
                   src="https://qapi.cz/wp-content/uploads/2025/10/Logo-Bile.png"
                   alt="QAPI Logo"

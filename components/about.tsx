@@ -39,7 +39,7 @@ export function About() {
             whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative h-[700px] rounded-2xl overflow-hidden group shadow-[0_20px_50px_-20px_rgba(207,175,108,0.3)] border border-white/10 [transform-style:preserve-3d]"
+            className="relative h-[400px] md:h-[600px] lg:h-[700px] rounded-2xl overflow-hidden group shadow-[0_20px_50px_-20px_rgba(207,175,108,0.3)] border border-white/10 [transform-style:preserve-3d]"
           >
             <motion.div className="absolute inset-0 w-full h-full" style={{ transform: "translateZ(-30px)" }}>
               <Image
@@ -52,10 +52,10 @@ export function About() {
             </motion.div>
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
             
-            <div className="absolute bottom-12 left-12 right-12 bg-muted/80 backdrop-blur-xl p-10 rounded-xl border border-primary/20 shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 ease-[0.16,1,0.3,1]" style={{ transform: "translateZ(30px)" }}>
-              <div className="flex items-center gap-8">
-                <div className="text-6xl font-display font-bold text-primary drop-shadow-[0_0_15px_rgba(207,175,108,0.5)]">15+</div>
-                <div className="text-white/80 font-light leading-relaxed text-lg">
+            <div className="absolute bottom-6 left-6 right-6 md:bottom-12 md:left-12 md:right-12 bg-muted/80 backdrop-blur-xl p-6 md:p-10 rounded-xl border border-primary/20 shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 ease-[0.16,1,0.3,1]" style={{ transform: "translateZ(30px)" }}>
+              <div className="flex items-center gap-4 md:gap-8">
+                <div className="text-4xl md:text-6xl font-display font-bold text-primary drop-shadow-[0_0_15px_rgba(207,175,108,0.5)]">15+</div>
+                <div className="text-white/80 font-light leading-relaxed text-sm md:text-lg">
                   Let zkušeností v oboru<br />
                   <span className="text-white font-bold">garážových vrat a stínící techniky</span>
                 </div>
