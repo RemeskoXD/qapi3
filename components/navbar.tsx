@@ -29,14 +29,14 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 [perspective:1000px] ${
-        isScrolled || isMobileMenuOpen ? 'bg-background/95 backdrop-blur-xl border-b border-white/10 py-3 md:py-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]' : 'bg-gradient-to-b from-background/80 via-background/40 to-transparent py-4 md:py-6'
+        isScrolled || isMobileMenuOpen ? 'bg-background/95 backdrop-blur-xl border-b border-white/10 py-3 md:py-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]' : 'bg-gradient-to-b from-background/60 to-transparent py-4 md:py-6'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between [transform-style:preserve-3d]">
         <Link href="/" className="flex items-center gap-2 group">
           <motion.div 
             whileHover={{ scale: 1.05, rotateY: 10 }}
-            className="relative w-[140px] h-[40px] sm:w-[160px] sm:h-[48px] md:w-[224px] md:h-[64px] transition-transform duration-300"
+            className="relative w-[160px] h-[48px] sm:w-[180px] sm:h-[54px] md:w-[224px] md:h-[64px] transition-transform duration-300"
           >
             <Image
               src="https://qapi.cz/wp-content/uploads/2025/10/Logo-Bile.png"
@@ -84,6 +84,8 @@ export function Navbar() {
         <button
           className="md:hidden text-white p-2 hover:text-primary transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Zavřít menu" : "Otevřít menu"}
+          aria-expanded={isMobileMenuOpen}
         >
           {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>

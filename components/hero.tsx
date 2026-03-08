@@ -23,9 +23,12 @@ export function Hero() {
         <div className="absolute inset-0 w-full h-full">
           <iframe
             src="https://www.youtube-nocookie.com/embed/cMQFYabS5eU?autoplay=1&mute=1&controls=0&loop=1&playlist=cMQFYabS5eU&wmode=transparent&enablejsapi=1&rel=0&origin=https://qapi.cz"
+            title="QAPI Background Video"
             allow="autoplay; encrypted-media"
             className="w-[300vw] h-[300vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover opacity-40 md:w-[150vw] md:h-[150vh]"
             style={{ border: 'none' }}
+            tabIndex={-1}
+            aria-hidden="true"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background" />
@@ -36,24 +39,23 @@ export function Hero() {
       <div className="container relative z-10 px-4 sm:px-6 md:px-12 flex flex-col items-center text-center mt-24 md:mt-20 pb-32 md:pb-0 [transform-style:preserve-3d]">
         {/* Promotional Banner */}
         <motion.div
-          initial={{ opacity: 0, y: -50, rotateX: -90 }}
-          animate={{ opacity: 1, y: 0, rotateX: 0 }}
-          transition={{ duration: 1.2, delay: 0.1, type: "spring", bounce: 0.4 }}
-          className="mb-8 md:mb-12 group cursor-pointer"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="mb-6 md:mb-8 group cursor-pointer"
         >
           <Link href="/kontakt" className="inline-block">
-            <div className="relative overflow-hidden rounded-full bg-muted/80 backdrop-blur-xl border border-primary/30 p-[1px] shadow-[0_10px_40px_-10px_rgba(207,175,108,0.3)] hover:shadow-[0_20px_60px_-15px_rgba(207,175,108,0.5)] transition-all duration-500 transform hover:-translate-y-1 hover:scale-105">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative px-3 py-1.5 md:px-5 md:py-2 flex items-center gap-3 md:gap-4 bg-background/50 rounded-full">
-                <div className="w-6 h-6 md:w-8 md:h-8 shrink-0 rounded-full bg-primary/20 flex items-center justify-center border border-primary/50 group-hover:rotate-12 transition-transform duration-500">
-                  <Wrench className="w-3 h-3 md:w-4 md:h-4 text-primary" />
+            <div className="relative overflow-hidden rounded-full bg-background/40 backdrop-blur-md border border-primary/20 p-[1px] shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/40">
+              <div className="relative px-3 py-1.5 md:px-4 md:py-1.5 flex items-center gap-2 md:gap-3 bg-background/40 rounded-full">
+                <div className="w-5 h-5 md:w-6 md:h-6 shrink-0 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 group-hover:rotate-12 transition-transform duration-300">
+                  <Wrench className="w-3 h-3 text-primary" />
                 </div>
-                <div className="text-left flex flex-col sm:flex-row sm:items-center sm:gap-2">
-                  <p className="text-white font-bold text-[10px] sm:text-xs md:text-sm tracking-wide uppercase">Kontrola oken ZDARMA</p>
+                <div className="text-left flex items-center gap-1.5 md:gap-2">
+                  <p className="text-white font-semibold text-[10px] md:text-xs tracking-wide uppercase">Kontrola oken ZDARMA</p>
                   <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-primary/50" />
-                  <p className="text-primary text-[9px] sm:text-[10px] md:text-xs font-medium">a servis se slevou až 30%</p>
+                  <p className="text-primary text-[10px] md:text-xs font-medium hidden sm:block">a servis se slevou až 30%</p>
                 </div>
-                <ArrowRight className="w-3 h-3 md:w-4 md:h-4 shrink-0 text-primary transform group-hover:translate-x-1 transition-transform duration-300 ml-1 md:ml-2" />
+                <ArrowRight className="w-3 h-3 text-primary transform group-hover:translate-x-1 transition-transform duration-300 ml-1" />
               </div>
             </div>
           </Link>
@@ -95,7 +97,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 40, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center gap-4 md:gap-6 w-full sm:w-auto px-4 sm:px-0"
+          className="mt-8 md:mt-14 [@media(max-height:700px)]:mt-6 flex flex-col sm:flex-row items-center gap-4 md:gap-6 w-full sm:w-auto px-4 sm:px-0"
         >
           <Link
             href="/kontakt"
@@ -121,7 +123,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 md:gap-4 z-20"
+        className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 md:gap-4 z-20 [@media(max-height:700px)]:hidden"
       >
         <span className="text-xs text-white/40 uppercase tracking-[0.3em] font-bold">Objevte více</span>
         <motion.div

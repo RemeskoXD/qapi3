@@ -39,13 +39,13 @@ export function GarageDoorScroll() {
   return (
     <section ref={containerRef} className="relative h-[400vh] bg-background">
       {/* Sticky kontejner, který zůstane na místě během scrollování celých 400vh */}
-      <div className="sticky top-0 h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden px-4 py-20 md:py-24">
+      <div className="sticky top-0 h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden px-4 py-16 md:py-24 [@media(max-height:700px)]:py-6">
         
-        <div className="text-center z-10 mb-4 md:mb-8 shrink-0">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-white mb-1 md:mb-2 leading-tight">
+        <div className="text-center z-10 mb-4 md:mb-8 [@media(max-height:700px)]:mb-2 shrink-0">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-white mb-1 md:mb-2 leading-tight [@media(max-height:700px)]:text-xl">
             Objevte naše <span className="text-primary italic">technologie</span>
           </h2>
-          <p className="text-white/50 text-xs sm:text-sm md:text-lg">Scrollujte dolů pro otevření vrat a přehrání videa</p>
+          <p className="text-white/50 text-xs sm:text-sm md:text-lg [@media(max-height:700px)]:text-[10px]">Scrollujte dolů pro otevření vrat a přehrání videa</p>
         </div>
 
         {/* Rám garáže - flex-1 zajistí, že se přizpůsobí výšce obrazovky */}
@@ -139,7 +139,7 @@ export function GarageDoorScroll() {
         {/* Tlačítko pod garáží */}
         <motion.div 
           style={{ opacity: videoOpacity, y: videoY, pointerEvents: videoPointerEvents as any }}
-          className="mt-4 md:mt-8 w-full flex justify-center px-4 relative z-20 shrink-0"
+          className="mt-4 md:mt-8 [@media(max-height:700px)]:mt-2 w-full flex justify-center px-4 relative z-20 shrink-0"
         >
           <Link href="#rezervace" className="group cursor-pointer w-full max-w-xl">
             <div className="relative overflow-hidden rounded-full bg-background/80 backdrop-blur-xl border border-primary/50 p-[1px] shadow-[0_10px_40px_-10px_rgba(207,175,108,0.5)] hover:shadow-[0_20px_60px_-15px_rgba(207,175,108,0.7)] transition-all duration-500 transform hover:-translate-y-1 hover:scale-105">
